@@ -1,4 +1,4 @@
-package com.atguigu.mapper;
+package com.atguigu.mapper.test1;
 
 import com.atguigu.pojo.User;
 

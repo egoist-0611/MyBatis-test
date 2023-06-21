@@ -10,8 +10,7 @@ public class User {
     public User() {
     }
 
-    public User(Integer id, String name, Integer age, Character sex, String phone) {
-        this.id = id;
+    public User(String name, Integer age, Character sex, String phone) {
         this.name = name;
         this.age = age;
         this.sex = sex;

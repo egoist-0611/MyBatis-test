@@ -1,6 +1,6 @@
 package com.atguigu.test1;
 
-import com.atguigu.mapper.UserMapper;
+import com.atguigu.mapper.test1.UserMapper;
 import com.atguigu.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
