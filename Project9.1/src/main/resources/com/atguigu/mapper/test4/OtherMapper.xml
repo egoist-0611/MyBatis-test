@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mapper.test4.OtherMapper">
+<!--    <insert id="getNewUserKey" useGeneratedKeys="true" keyProperty="key">-->
+<!--        INSERT INTO user(name,age,sex,phone) VALUES(#{name},#{age},#{sex},#{phone})-->
+<!--    </insert>-->
+    <insert id="getNewUserKey" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user(name,age,sex,phone) VALUES(#{name},#{age},#{sex},#{phone})
+    </insert>
+    <select id="getUserFromTable" resultType="User">
+        SELECT * FROM ${table} WHERE id = 3;
+    </select>
+    <delete id="deleteUsers">
+        DELETE FROM user WHERE id in (${ids})
+    </delete>
+    <select id="getUserByLikeName" resultType="User">
+<!--    SELECT * FROM user WHERE name Like "%"#{name}"%"    -->
+        SELECT * FROM user WHERE name Like '%${name}%'
+    </select>
+</mapper>

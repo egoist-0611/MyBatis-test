@@ -1,44 +1,37 @@
 package com.atguigu.pojo;
 
-public class User {
-    private Integer id;
-    private String name;
+public class Employee {
+    private Integer eid;
+    private String empName;
     private Integer age;
     private Character sex;
     private String phone;
 
-    public User() {
+    public Employee() {
     }
 
-    public User(String name, Integer age, Character sex, String phone) {
-        this.name = name;
+    public Employee(Integer eid, String empName, Integer age, Character sex, String phone) {
+        this.eid = eid;
+        this.empName = empName;
         this.age = age;
         this.sex = sex;
         this.phone = phone;
     }
 
-    public User(Integer id, String name, Integer age, Character sex, String phone) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.sex = sex;
-        this.phone = phone;
+    public Integer getEid() {
+        return eid;
     }
 
-    public Integer getId() {
-        return id;
+    public void setEid(Integer eid) {
+        this.eid = eid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public String getEmpName() {
+        return empName;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setEmpName(String empName) {
+        this.empName = empName;
     }
 
     public Integer getAge() {
@@ -67,9 +60,9 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+        return "Employee{" +
+                "eid=" + eid +
+                ", empName='" + empName + '\'' +
                 ", age=" + age +
                 ", sex=" + sex +
                 ", phone='" + phone + '\'' +
