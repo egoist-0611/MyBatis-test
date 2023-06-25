@@ -5,11 +5,12 @@
 <configuration>
 
     <properties resource="JDBC.properties"/>
-    
-<!--    <settings>-->
-<!--        <setting name="mapUnderscoreToCamelCase" value="true"/>-->
-<!--    </settings>-->
-    
+
+        <settings>
+            <setting name="mapUnderscoreToCamelCase" value="true"/>
+            <setting name="lazyLoadingEnabled" value="true"/>
+        </settings>
+
     <typeAliases>
         <package name="com.atguigu.pojo"/>
     </typeAliases>
@@ -27,6 +28,9 @@
     </environments>
 
     <mappers>
-        <package name="com.atguigu.test1"/>
+        <!--        <package name="com.atguigu.test1"/>-->
+<!--        <package name="com.atguigu.test2"/>-->
+<!--        <package name="com.atguigu.test3"/>-->
+        <package name="com.atguigu.test4"/>
     </mappers>
 </configuration>

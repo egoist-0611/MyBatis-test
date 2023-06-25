@@ -6,6 +6,7 @@ public class Employee {
     private Integer age;
     private Character sex;
     private String phone;
+    private Department dept;
 
     public Employee() {
     }
@@ -58,6 +59,14 @@ public class Employee {
         this.phone = phone;
     }
 
+    public Department getDept() {
+        return dept;
+    }
+
+    public void setDept(Department dept) {
+        this.dept = dept;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -66,6 +75,7 @@ public class Employee {
                 ", age=" + age +
                 ", sex=" + sex +
                 ", phone='" + phone + '\'' +
+                ", dept=" + dept +
                 '}';
     }
 }

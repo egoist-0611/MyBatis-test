@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.test3.TapMapper">
+<!--    <sql id="empColumnName">eid,emp_name,age,sex,phone</sql>-->
+    <sql id="empColumnName">SELECT * FROM employee</sql>
+    <select id="getAllEmployee" resultType="Employee">
+<!--        SELECT <include refid="empColumnName"/> FROM employee-->
+        <include refid="empColumnName"/>
+    </select>
+    <insert id="insertMoreByList">
+        INSERT INTO employee VALUES
+        <foreach collection="emps" item="emp" separator=",">
+            (NULL,#{emp.empName},#{emp.age},#{emp.sex},#{emp.phone},NULL)
+        </foreach>
+    </insert>
+    <delete id="deleteMoreByArray">
+        DELETE FROM employee WHERE eid IN
+        <foreach collection="eids" item="eid" separator="," open="(" close=")">
+            #{eid}
+        </foreach>
+    </delete>
+    <select id="getEmpByNameAge" resultType="Employee">
+        SELECT * FROM employee
+        <where>
+            <choose>
+                <when test="empName!=null and empName!=''">
+                    emp_name = #{empName}
+                </when>
+                <when test="age!=null and age!=''">
+                    age = #{age}
+                </when>
+                <otherwise>
+                    eid = 1
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+    <!--    <select id="getEmpByNameAge" resultType="Employee">-->
+    <!--        SELECT * FROM employee-->
+    <!--        <trim prefix="WHERE" suffixOverrides="and|or">-->
+    <!--            <if test="empName!=null and empName!=''">-->
+    <!--                emp_name = #{empName} AND-->
+    <!--            </if>-->
+    <!--            <if test="age!=null and age!=''">-->
+    <!--                age = #{age} AND-->
+    <!--            </if>-->
+    <!--            1=1 AND-->
+    <!--        </trim>-->
+    <!--    </select>-->
+    <!--    <select id="getEmpByNameAge" resultType="Employee">-->
+    <!--        SELECT * FROM employee-->
+    <!--        <where>-->
+    <!--            <if test="empName!=null and empName!=''">-->
+    <!--                AND emp_name = #{empName}-->
+    <!--            </if>-->
+    <!--            <if test="age!=null and age!=''">-->
+    <!--                AND age = #{age}-->
+    <!--            </if>-->
+    <!--        </where>-->
+    <!--    </select>-->
+    <!--    <select id="getEmpByNameAge" resultType="Employee">-->
+    <!--        SELECT * FROM employee WHERE 1=1-->
+    <!--        <if test="empName!=null and empName!=''">-->
+    <!--            AND emp_name = #{empName}-->
+    <!--        </if>-->
+    <!--        <if test="age!=null and age!=''">-->
+    <!--            AND age = #{age}-->
+    <!--        </if>-->
+    <!--    </select>-->
+</mapper>
